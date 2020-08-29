@@ -42,3 +42,4 @@ with open('The Project Gutenberg EBook of Mewanee.txt', encoding='utf8') as file
     myimage = calculate_frequencies(file_data)
     plot.imshow(myimage, interpolation = 'nearest')
     plot.axis('off')
+    plot.show()
