@@ -11,6 +11,9 @@ def readFileAndDrawPlot():
     fileContents = ""
     for i in file:
         fileContents += str(i, 'utf-8')
+    drawPlot(fileContents)
+
+def drawPlot(fileContents):
     myimage = calculate_frequencies(fileContents)
     plot.imshow(myimage, interpolation = 'nearest')
     plot.axis('off')
@@ -50,7 +53,7 @@ def calculate_frequencies(fileContents):
     cloud.generate_from_frequencies(wordCount)
     return cloud.to_array()
 
-def main1():
+def main():
     base = Tk()
     base.geometry("300x100")
     Title = base.title( "File Opener")
@@ -63,6 +66,6 @@ def main1():
     file.add_command(label = "Open", command = readFileAndDrawPlot)
     file.add_command(label = "Exit", command = exit)
     mainloop()
-
+    
 if __name__ == "__main__":
-    main1()
+    main()
