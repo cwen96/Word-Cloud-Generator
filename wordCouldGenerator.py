@@ -1,13 +1,17 @@
+#wordCloudGenerator.py
+
 import wordcloud
 from matplotlib import pyplot as plot
 
-def replace_punctuation(word, punctuation):
+#Removes punctuation from words
+def omit_punctuation(word, punctuation):
     newWord = ""
     for c in word:
         if c not in punctuation:
             newWord += c
     return newWord
 
+#Calculates how many times each word appears in the text file
 def calculate_frequencies(file_data):
     #List of punctuations and uninteresting words to be excluded from the wordcloud
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
@@ -20,7 +24,7 @@ def calculate_frequencies(file_data):
     wordCount = {}
     for word in file_data.split():
         lowercase = word.lower()
-        lowercase = replace_punctuation(lowercase, punctuations)
+        lowercase = omit_punctuation(lowercase, punctuations)
         if lowercase.isalpha():
             if lowercase in uninteresting_words:
                 continue
@@ -38,4 +42,3 @@ with open('The Project Gutenberg EBook of Mewanee.txt', encoding='utf8') as file
     myimage = calculate_frequencies(file_data)
     plot.imshow(myimage, interpolation = 'nearest')
     plot.axis('off')
-    plot.show()
