@@ -54,18 +54,16 @@ def calculate_frequencies(fileContents):
     return cloud.to_array()
 
 def main():
-    base = Tk()
-    base.geometry("300x100")
-    Title = base.title( "File Opener")
-    label = ttk.Label(base, text ="Please open a text file",foreground="black",font=("Calibri", 20))
-    label.pack()
-    menu = Menu(base)
-    base.config(menu=menu)
-    file = Menu(menu, tearoff = False)
-    menu.add_cascade(label = "File", menu = file)
-    file.add_command(label = "Open", command = readFileAndDrawPlot)
-    file.add_command(label = "Exit", command = exit)
-    mainloop()
+    root = Tk()
+    root.title("Word Cloud Generator")
+    root.geometry("300x100")
+    textFrame = Frame(root)
+    textFrame.pack()
+    label = Label(textFrame, text = "Please open a text file", foreground="black",font=("Calibri", 20))
+    label.pack(side = TOP)
+    button = Button(textFrame, text = "Browse...", command = readFileAndDrawPlot)
+    button.pack(side = BOTTOM)
+    root.mainloop()
     
 if __name__ == "__main__":
     main()
