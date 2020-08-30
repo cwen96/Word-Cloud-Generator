@@ -6,6 +6,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.filedialog import askopenfile
 
+#Reads the selected file and then draws the wordcloud
 def readFileAndDrawPlot():
     file = askopenfile(mode = 'rb', filetypes = [("Text Files", "*.txt")])
     fileContents = ""
@@ -19,7 +20,6 @@ def drawPlot(fileContents):
     plot.axis('off')
     plot.show()
     
-
 #Removes punctuation from words
 def omit_punctuation(word, punctuation):
     newWord = ""
@@ -36,7 +36,8 @@ def calculate_frequencies(fileContents):
     "we", "our", "ours", "you", "your", "yours", "he", "she", "him", "his", "her", "hers", "its", "they", "them", \
     "their", "what", "which", "who", "whom", "this", "that", "am", "are", "was", "were", "be", "been", "being", \
     "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
-    "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just", "for", "in", "not", "gutenbergtm", "into"]
+    "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just", \
+    "for", "in", "not", "into"]
     
     wordCount = {}
     for word in fileContents.split():
@@ -54,6 +55,7 @@ def calculate_frequencies(fileContents):
     return cloud.to_array()
 
 def main():
+    #GUI
     root = Tk()
     root.title("Word Cloud Generator")
     root.geometry("300x100")
