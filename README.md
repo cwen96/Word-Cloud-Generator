@@ -8,4 +8,5 @@ Uninteresting words such as 'for', 'the', 'a', and many others have been omitted
 The following lines may need to be run on the command terminal in order for this program to work properly:
 
 pip install matplotlib
+
 pip install wordcloud
