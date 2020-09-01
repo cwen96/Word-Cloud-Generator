@@ -37,7 +37,7 @@ def calculate_frequencies(fileContents):
     "their", "what", "which", "who", "whom", "this", "that", "am", "are", "was", "were", "be", "been", "being", \
     "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
     "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just", \
-    "for", "in", "not", "into"]
+    "for", "in", "not", "into", "so"]
     
     wordCount = {}
     for word in fileContents.split():
