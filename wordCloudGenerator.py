@@ -2,13 +2,12 @@
 
 import wordcloud
 from matplotlib import pyplot as plot
-from tkinter import *
-from tkinter import ttk
-from tkinter.filedialog import askopenfile
+import tkinter
+#from tkinter.filedialog import askopenfile
 
 #Reads the selected file and then draws the wordcloud
 def readFileAndDrawPlot():
-    file = askopenfile(mode = 'rb', filetypes = [("Text Files", "*.txt")])
+    file = tkinter.filedialogue.askopenfile(mode = 'rb', filetypes = [("Text Files", "*.txt")])
     fileContents = ""
     for i in file:
         fileContents += str(i, 'utf-8')
@@ -56,15 +55,15 @@ def calculate_frequencies(fileContents):
 
 def main():
     #GUI
-    root = Tk()
+    root = tkinter.Tk()
     root.title("Word Cloud Generator")
     root.geometry("300x100")
-    textFrame = Frame(root)
+    textFrame = tkinter.Frame(root)
     textFrame.pack()
-    label = Label(textFrame, text = "Please open a text file", foreground="black",font=("Calibri", 20))
-    label.pack(side = TOP)
-    button = Button(textFrame, text = "Browse...", command = readFileAndDrawPlot)
-    button.pack(side = BOTTOM)
+    label = tkinter.Label(textFrame, text = "Please open a text file", foreground="black",font=("Calibri", 20))
+    label.pack(side = tkinter.TOP)
+    button = tkinter.Button(textFrame, text = "Browse...", command = readFileAndDrawPlot)
+    button.pack(side = tkinter.BOTTOM)
     root.mainloop()
     
 if __name__ == "__main__":
