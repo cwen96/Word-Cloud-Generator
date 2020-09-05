@@ -3,11 +3,11 @@
 import wordcloud
 from matplotlib import pyplot as plot
 import tkinter
-#from tkinter.filedialog import askopenfile
+from tkinter.filedialog import askopenfile
 
 #Reads the selected file and then draws the wordcloud
 def readFileAndDrawPlot():
-    file = tkinter.filedialogue.askopenfile(mode = 'rb', filetypes = [("Text Files", "*.txt")])
+    file = askopenfile(mode = 'rb', filetypes = [("Text Files", "*.txt")])
     fileContents = ""
     for i in file:
         fileContents += str(i, 'utf-8')
